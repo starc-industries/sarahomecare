@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARA Home Care - Excellence in Healthcare</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Sara Home Care</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#departments" class="nav-link">Departments</a></li>
+                    <li class="nav-item"><a href="#staff" class="nav-link">Staff</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#portal" class="nav-link portal-btn">Patient Portal</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Sliding Background -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <!-- Background images will be dynamically loaded -->
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Excellence in Healthcare</h1>
+                <p class="hero-subtitle">Providing compassionate, quality medical care with state-of-the-art technology and experienced professionals</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openAppointmentModal()">
+                        <i class="fas fa-calendar-plus"></i>
+                        Book Appointment
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('services')">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hero-controls">
+            <button class="control-btn prev-btn" onclick="previousSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="control-btn next-btn" onclick="nextSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="slide-indicators">
+            <!-- Indicators will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- Quick Stats Widget -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-animation="slide-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="150">0</h3>
+                        <p class="stat-label">Expert Doctors</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-animation="slide-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="500">0</h3>
+                        <p class="stat-label">Hospital Beds</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-animation="slide-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="25">0</h3>
+                        <p class="stat-label">Years Experience</p>
+                    </div>
+                </div>
+                <div class="stat-card" data-animation="slide-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-count="50000">0</h3>
+                        <p class="stat-label">Happy Patients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive healthcare services tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Cardiology</h3>
+                    <p class="service-description">Advanced cardiac care with state-of-the-art equipment and experienced cardiologists.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Neurology</h3>
+                    <p class="service-description">Comprehensive neurological care for brain and nervous system disorders.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3 class="service-title">Orthopedics</h3>
+                    <p class="service-description">Expert treatment for bone, joint, and musculoskeletal conditions.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="service-title">Pediatrics</h3>
+                    <p class="service-description">Specialized medical care for infants, children, and adolescents.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="service-title">Ophthalmology</h3>
+                    <p class="service-description">Complete eye care services from routine exams to complex surgeries.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+                <div class="service-card" data-animation="fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3 class="service-title">Pulmonology</h3>
+                    <p class="service-description">Respiratory care and treatment for lung and breathing disorders.</p>
+                    <button class="service-btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Medical Departments</h2>
+                <p class="section-subtitle">Specialized departments with expert medical professionals</p>
+            </div>
+            <div class="departments-grid">
+                <div class="department-card" data-animation="slide-left">
+                    <div class="department-image">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3 class="department-title">Emergency Department</h3>
+                        <p class="department-description">24/7 emergency medical services with rapid response team</p>
+                        <ul class="department-features">
+                            <li><i class="fas fa-check"></i> 24/7 Emergency Care</li>
+                            <li><i class="fas fa-check"></i> Trauma Center</li>
+                            <li><i class="fas fa-check"></i> Critical Care Unit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="department-card" data-animation="slide-right">
+                    <div class="department-image">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3 class="department-title">Surgery Department</h3>
+                        <p class="department-description">Advanced surgical procedures with minimally invasive techniques</p>
+                        <ul class="department-features">
+                            <li><i class="fas fa-check"></i> Minimally Invasive Surgery</li>
+                            <li><i class="fas fa-check"></i> Robotic Surgery</li>
+                            <li><i class="fas fa-check"></i> Day Surgery Center</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="department-card" data-animation="slide-left">
+                    <div class="department-image">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3 class="department-title">Radiology Department</h3>
+                        <p class="department-description">State-of-the-art diagnostic imaging and interventional radiology</p>
+                        <ul class="department-features">
+                            <li><i class="fas fa-check"></i> MRI & CT Scans</li>
+                            <li><i class="fas fa-check"></i> Digital X-Ray</li>
+                            <li><i class="fas fa-check"></i> Ultrasound</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="department-card" data-animation="slide-right">
+                    <div class="department-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3 class="department-title">Laboratory Services</h3>
+                        <p class="department-description">Comprehensive diagnostic testing with quick turnaround times</p>
+                        <ul class="department-features">
+                            <li><i class="fas fa-check"></i> Blood Tests</li>
+                            <li><i class="fas fa-check"></i> Pathology</li>
+                            <li><i class="fas fa-check"></i> Microbiology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Directory Section -->
+    <section id="staff" class="staff-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Medical Team</h2>
+                <p class="section-subtitle">Meet our experienced healthcare professionals</p>
+            </div>
+            <div class="staff-grid">
+                <div class="staff-card" data-animation="fade-up">
+                    <div class="staff-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Dr. A</h3>
+                        <p class="staff-position">Chief of Cardiology</p>
+                        <p class="staff-experience">10+ years experience</p>
+                        <div class="staff-specialties">
+                            <span class="specialty-tag">Interventional Cardiology</span>
+                            <span class="specialty-tag">Heart Surgery</span>
+                        </div>
+                        <button class="staff-contact-btn">Contact</button>
+                    </div>
+                </div>
+                <div class="staff-card" data-animation="fade-up">
+                    <div class="staff-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Dr. B</h3>
+                        <p class="staff-position">Head of Neurology</p>
+                        <p class="staff-experience">10+ years experience</p>
+                        <div class="staff-specialties">
+                            <span class="specialty-tag">Brain Surgery</span>
+                            <span class="specialty-tag">Neuroscience</span>
+                        </div>
+                        <button class="staff-contact-btn">Contact</button>
+                    </div>
+                </div>
+                <div class="staff-card" data-animation="fade-up">
+                    <div class="staff-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Dr. C</h3>
+                        <p class="staff-position">Pediatric Specialist</p>
+                        <p class="staff-experience">10+ years experience</p>
+                        <div class="staff-specialties">
+                            <span class="specialty-tag">Child Health</span>
+                            <span class="specialty-tag">Vaccinations</span>
+                        </div>
+                        <button class="staff-contact-btn">Contact</button>
+                    </div>
+                </div>
+                <div class="staff-card" data-animation="fade-up">
+                    <div class="staff-image">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 class="staff-name">Dr. D</h3>
+                        <p class="staff-position">Orthopedic Surgeon</p>
+                        <p class="staff-experience">18+ years experience</p>
+                        <div class="staff-specialties">
+                            <span class="specialty-tag">Joint Replacement</span>
+                            <span class="specialty-tag">Sports Medicine</span>
+                        </div>
+                        <button class="staff-contact-btn">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">We're here to help you with all your healthcare needs</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>No.68, 8th Main Road, Vasanth Nagar<br>Bengaluru, Karnataka 560052</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>Emergency: +91 9361863166<br>General: +91 6369661121</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@sarahomecare.com<br>emergency@sarahomecare.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Hours</h4>
+                            <p>Emergency: 24/7<br>General: Mon-Fri 8AM-6PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send us a Message</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="appointment">Appointment Inquiry</option>
+                                <option value="general">General Information</option>
+                                <option value="emergency">Emergency</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Portal Modal -->
+    <div id="portalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-circle"></i> Patient Portal</h2>
+                <span class="close" onclick="closePortalModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="portal-tabs">
+                    <button class="tab-btn active" onclick="switchPortalTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchPortalTab('register')">Register</button>
+                </div>
+                
+                <div id="loginTab" class="tab-content active">
+                    <form class="portal-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                    </form>
+                </div>
+                
+                <div id="registerTab" class="tab-content">
+                    <form class="portal-form" id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" id="registerEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPhone">Phone Number</label>
+                            <input type="tel" id="registerPhone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointment Booking Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-plus"></i> Book Appointment</h2>
+                <span class="close" onclick="closeAppointmentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="appointment-form" id="appointmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+                            <input type="text" id="patientName" name="patientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientEmail">Email Address</label>
+                            <input type="email" id="patientEmail" name="patientEmail" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientPhone">Phone Number</label>
+                            <input type="tel" id="patientPhone" name="patientPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientAge">Age</label>
+                            <input type="number" id="patientAge" name="patientAge" min="1" max="120" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="ophthalmology">Ophthalmology</option>
+                                <option value="pulmonology">Pulmonology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Preferred Doctor</label>
+                            <select id="doctor" name="doctor">
+                                <option value="">Any Available</option>
+                                <option value="dr-a">Dr.SHAM </option>
+                                <option value="dr-b">Dr. B</option>
+                                <option value="dr-c">Dr. C</option>
+                                <option value="dr-d">Dr. D</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointmentDate">Preferred Date</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Preferred Time</label>
+                            <select id="appointmentTime" name="appointmentTime" required>
+                                <option value="">Select Time</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms">Symptoms/Reason for Visit</label>
+                        <textarea id="symptoms" name="symptoms" rows="4" placeholder="Please describe your symptoms or reason for the appointment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="insurance">Insurance Provider</label>
+                        <select id="insurance" name="insurance">
+                            <option value="">Select Insurance</option>
+                            <option value="blue-cross">Blue Cross Blue Shield</option>
+                            <option value="aetna">Aetna</option>
+                            <option value="cigna">Cigna</option>
+                            <option value="united">United Healthcare</option>
+                            <option value="Sara">Sara Home Care</option>
+                            <option value="medicaid">Medicaid</option>
+                            <option value="self-pay">Self Pay</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-check"></i>
+                        Book Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Sara Home care</span>
+                    </div>
+                    <p class="footer-description">
+                        Providing exceptional healthcare services with compassion, innovation, and excellence for over 25 years.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/actorajithfc/" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#staff">Medical Team</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Emergency Care</a></li>
+                        <li><a href="#">Surgery</a></li>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> No.68, 8th Main Road, Vasanth Nagar, Bengaluru, Karnataka - 560 052</p>
+                        <p><i class="fas fa-phone"></i>+91 9361863166</p>
+                        <p><i class="fas fa-phone"></i>+91 6369661121</p>
+                        <p><i class="fas fa-envelope"></i> info@sarahomecare.com</p>
+                        <p><i class="fas fa-clock"></i> Emergency: 24/7</p>
+                    </div>
+
+                </div>
+<iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=vasanthnagar%20Bengaluru+(sara%20home%20care)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.acadoo.de/leistungen/ghostwriter-doktorarbeit/'>Dissertation schreiben</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=40e1526935853d3802aa835f246672547b9ae05f'></script>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Sara Home Care. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-heart fa-beat"></i>
+        </div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>
