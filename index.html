@@ -303,7 +303,7 @@ async function handleContactForm(e) {
     const data = Object.fromEntries(formData);
     window.location.replace("admin dasboard.html");
     // Validate form
-/*    if (validateContactForm(data)) {
+    if (validateContactForm(data)) {
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -354,7 +354,7 @@ function validateContactForm(data) {
     }
     
     return true;
-} */
+} 
 
 // Email Validation
 function isValidEmail(email) {
