@@ -5,7 +5,8 @@ let slideInterval;
 let isLoading = true;
 
 // Background Images from provided URLs
-const backgroundImages = ['file:///C:/Users/Admin/Downloads/cartoon-portrait-hindu-god.jpg',
+const backgroundImages = [
+    'https://pixabay.com/get/g502bf175fd49f55ba3e57c55a284aa772e2bc448c90afffa02eae0bfc6ab3b5449fb8bec16e377ff1d26e72b7074b2861c3870e985843b85ede8d29f5fb881f8_1280.jpg',
     'https://pixabay.com/get/g502bf175fd49f55ba3e57c55a284aa772e2bc448c90afffa02eae0bfc6ab3b5449fb8bec16e377ff1d26e72b7074b2861c3870e985843b85ede8d29f5fb881f8_1280.jpg',
     'https://pixabay.com/get/ge7b4485144b2e4621794af9301edf9d7a3a905a93184dbb122320684dc00306f430ef80cf1387325796c12d672cf3ba41c732d57540f45265fc566d9b23648a5_1280.jpg',
     'https://pixabay.com/get/gb2e7b75160dc63932c3f203b533517b2e73779d858561502b4fda6617cc468ba01376e01e650cdb49b0d1197e218e9a05c8c6637e8a32ab2bfbeea723fad6889_1280.jpg',
