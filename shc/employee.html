@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Hospital Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Hospital Staff</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a></li>
+                <li><a href="#my-tasks" class="nav-item" data-section="my-tasks">
+                    <i class="fas fa-tasks"></i> My Tasks
+                </a></li>
+                <li><a href="#appointments" class="nav-item" data-section="appointments">
+                    <i class="fas fa-calendar-alt"></i> My Appointments
+                </a></li>
+                <li><a href="#contacts" class="nav-item" data-section="contacts">
+                    <i class="fas fa-envelope"></i> My Messages
+                </a></li>
+                <li><a href="#schedule" class="nav-item" data-section="schedule">
+                    <i class="fas fa-calendar-week"></i> Schedule
+                </a></li>
+                <li><a href="#profile" class="nav-item" data-section="profile">
+                    <i class="fas fa-user"></i> Profile
+                </a></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <span class="user-name" id="currentUserName">Employee</span>
+                    <span class="user-role" id="currentUserRole">Staff</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="header-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count" id="notificationCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="assignedAppointments">0</h3>
+                        <p>Assigned Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="pendingTasks">0</h3>
+                        <p>Pending Tasks</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="assignedMessages">0</h3>
+                        <p>Assigned Messages</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="todayAppointments">0</h3>
+                        <p>Today's Appointments</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Today's Schedule</h3>
+                    <div class="schedule-container">
+                        <div id="todaySchedule" class="schedule-list">
+                            <!-- Today's appointments will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Recent Activities</h3>
+                    <div class="activity-container">
+                        <div id="recentActivities" class="activity-list">
+                            <!-- Recent activities will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Tasks Section -->
+        <section id="my-tasks-section" class="content-section">
+            <div class="section-header">
+                <h2>My Tasks</h2>
+                <div class="task-filters">
+                    <select id="taskTypeFilter" class="filter-select">
+                        <option value="">All Tasks</option>
+                        <option value="appointment">Appointments</option>
+                        <option value="contact">Messages</option>
+                    </select>
+                    <select id="taskStatusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tasks-grid">
+                <div class="task-column">
+                    <h3 class="column-header pending">Pending</h3>
+                    <div id="pendingTasks" class="task-list"></div>
+                </div>
+                <div class="task-column">
+                    <h3 class="column-header progress">In Progress</h3>
+                    <div id="inProgressTasks" class="task-list"></div>
+                </div>
+                <div class="task-column">
+                    <h3 class="column-header completed">Completed</h3>
+                    <div id="completedTasks" class="task-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Appointments Section -->
+        <section id="appointments-section" class="content-section">
+            <div class="section-header">
+                <h2>My Appointments</h2>
+                <div class="filters">
+                    <input type="date" id="appointmentDateFilter" class="filter-input">
+                    <select id="appointmentStatusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Date & Time</th>
+                            <th>Department</th>
+                            <th>Symptoms</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- My Messages Section -->
+        <section id="contacts-section" class="content-section">
+            <div class="section-header">
+                <h2>My Messages</h2>
+                <select id="messageStatusFilter" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="assigned">Assigned</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="messagesTable">
+                    <thead>
+                        <tr>
+                            <th>Sender</th>
+                            <th>Subject</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Received</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule-section" class="content-section">
+            <div class="section-header">
+                <h2>My Schedule</h2>
+                <div class="schedule-nav">
+                    <button class="btn btn-secondary" onclick="previousWeek()">
+                        <i class="fas fa-chevron-left"></i> Previous Week
+                    </button>
+                    <span id="currentWeek" class="week-display"></span>
+                    <button class="btn btn-secondary" onclick="nextWeek()">
+                        Next Week <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-grid" id="scheduleCalendar">
+                    <!-- Calendar will be generated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="content-section">
+            <div class="section-header">
+                <h2>My Profile</h2>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName">Employee Name</h3>
+                            <p id="profileRole">Employee Role</p>
+                            <p id="profileDepartment">Department</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <label>Email:</label>
+                            <span id="profileEmail">email@hospital.com</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Employee ID:</label>
+                            <span id="profileEmployeeId">EMP001</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Phone:</label>
+                            <span id="profilePhone">+1 234 567 8900</span>
+                        </div>
+                        <div class="detail-row">
+                            <label>Last Login:</label>
+                            <span id="profileLastLogin">Never</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" onclick="editProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="btn btn-secondary" onclick="changePassword()">
+                            <i class="fas fa-key"></i> Change Password
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>My Statistics</h3>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Appointments Handled:</span>
+                            <span class="stat-value" id="totalHandled">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Messages Resolved:</span>
+                            <span class="stat-value" id="messagesResolved">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Average Response Time:</span>
+                            <span class="stat-value" id="avgResponseTime">N/A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Task Detail Modal -->
+    <div id="taskDetailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="taskDetailTitle">Task Details</h2>
+                <span class="close" onclick="closeTaskDetailModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="taskDetailContent">
+                    <!-- Task details will be loaded here -->
+                </div>
+                <div class="task-actions">
+                    <button class="btn btn-success" onclick="markTaskCompleted()">
+                        <i class="fas fa-check"></i> Mark Completed
+                    </button>
+                    <button class="btn btn-warning" onclick="updateTaskStatus()">
+                        <i class="fas fa-edit"></i> Update Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="employee.js"></script>
+</body>
+</html>
